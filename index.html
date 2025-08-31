@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoSeller Demo</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Библиотеки -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Ваш магазин на автопилоте 🚀</h1>
+    <p>Больше никаких простоев</p>
+  </header>
+
+  <nav>
+    <button onclick="showPage('dashboard')"><i class="fa fa-chart-pie"></i> Дашборд</button>
+    <button onclick="showPage('products')"><i class="fa fa-box"></i> Товары</button>
+    <button onclick="showPage('prices')"><i class="fa fa-tags"></i> Цены</button>
+    <button onclick="showPage('analytics')"><i class="fa fa-chart-line"></i> Аналитика</button>
+    <button onclick="showPage('connect')"><i class="fa fa-plug"></i> Подключение</button>
+  </nav>
+
+  <main>
+    <!-- Дашборд -->
+    <section id="dashboard" class="page active">
+      <div class="card animate__animated animate__fadeIn">
+        <h2>Общая статистика</h2>
+        <p><b>Всего товаров:</b> <span id="total-products"></span></p>
+        <p><b>Проблемы:</b> <span id="issues-count"></span></p>
+        <p class="highlight"><b>Сэкономили времени:</b> <span id="time-saved"></span></p>
+        <p class="alert"><b>Упущенные продажи:</b> <span id="lost-sales"></span></p>
+      </div>
+      <div id="achievements"></div>
+    </section>
+
+    <!-- Товары -->
+    <section id="products" class="page">
+      <h2>Товары и остатки</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Фото</th>
+            <th>Название</th>
+            <th>Категория</th>
+            <th>Остаток</th>
+            <th>Цена (₽)</th>
+            <th>Статус</th>
+          </tr>
+        </thead>
+        <tbody id="product-table"></tbody>
+      </table>
+    </section>
+
+    <!-- Мониторинг цен -->
+    <section id="prices" class="page">
+      <h2>Мониторинг цен конкурентов</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Товар</th>
+            <th>Наша цена</th>
+            <th>Цена конкурента</th>
+            <th>Рекомендация</th>
+          </tr>
+        </thead>
+        <tbody id="price-table"></tbody>
+      </table>
+    </section>
+
+    <!-- Аналитика -->
+    <section id="analytics" class="page">
+      <h2>Аналитика</h2>
+      <canvas id="salesChart"></canvas>
+      <canvas id="stockChart"></canvas>
+      <canvas id="timeChart"></canvas>
+    </section>
+
+    <!-- Подключение -->
+    <section id="connect" class="page">
+      <h2>Подключение магазинов</h2>
+      <form id="connect-form">
+        <label>API Key Ozon</label>
+        <input type="text" id="ozon-key" placeholder="Введите ключ">
+        <label>API Key Wildberries</label>
+        <input type="text" id="wb-key" placeholder="Введите ключ">
+        <button type="submit">Сохранить</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© AutoSeller Demo 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
